@@ -1,0 +1,6 @@
+* "openal.library"
+##base _OpenALBase
+##bias 30
+##public
+OALGetDispatch(abi)(d0)
+##end

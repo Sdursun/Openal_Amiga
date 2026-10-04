@@ -1,0 +1,21 @@
+# Builds openal.lib, the stub library for SAS/C 6.x.
+#
+# The stubs are plain C: OpenAL functions that open openal.library on the
+# first call and call through its function table. Run "smake" in this
+# directory, then link openal.lib into your program:
+#
+#   sc LINK mygame.c IDIR=/include LIB openal.lib
+#
+# The table always takes its arguments on the stack (__stdargs), so the
+# stubs work with PARMS=REGISTER too.
+
+CFLAGS = IDIR=/include NOSTACKCHECK OPTIMIZE DATA=FARONLY
+
+openal.lib: stub_core.o openal_stubs.o
+	oml openal.lib r stub_core.o openal_stubs.o
+
+stub_core.o: stub_core.c
+	sc $(CFLAGS) stub_core.c
+
+openal_stubs.o: openal_stubs.c
+	sc $(CFLAGS) openal_stubs.c

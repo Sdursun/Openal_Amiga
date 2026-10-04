@@ -1,0 +1,6 @@
+* text=auto eol=lf
+libs/openal.library binary
+test/al_* binary
+*.a binary
+*.lib binary
+*.wav binary

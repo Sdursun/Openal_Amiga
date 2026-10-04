@@ -1,0 +1,10 @@
+==id $Id: openal_lib.sfd 1.0 (04.10.2026) $
+==base _OpenALBase
+==basetype struct Library *
+==libname openal.library
+==bias 30
+==public
+==include <exec/types.h>
+==include <libraries/openal_dispatch.h>
+const struct OALDispatch * OALGetDispatch(ULONG abi) (d0)
+==end
